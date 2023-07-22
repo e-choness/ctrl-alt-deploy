@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using System;
 
 [Serializable]
@@ -34,6 +35,10 @@ public class WheelDrive : MonoBehaviour
 
     float handBrake, angle, torque;
 
+    public InputActionAsset primaryActions;
+    private InputActionMap _gameplayActionMap;
+    private InputAction _handbreakInputAction;
+
 
     // Find all the WheelColliders down in the hierarchy.
     void Start()
@@ -53,6 +58,32 @@ public class WheelDrive : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        _gameplayActionMap = primaryActions.FindActionMap("Gameplay");
+
+        _handbreakInputAction = _gameplayActionMap.FindAction("Handbreak");
+
+        _handbreakInputAction.performed += GetHandbreakInput;
+        _handbreakInputAction.canceled += GetHandbreakInput;
+    }
+
+    // This is where to update handbreak input
+    private void GetHandbreakInput(InputAction.CallbackContext context)
+    {
+        handBrake = context.ReadValue<float>() * brakeTorque;
+    }
+
+    private void OnEnable()
+    {
+        _handbreakInputAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _handbreakInputAction.Disable();
+    }
+
     // This is a really simple approach to updating wheels.
     // We simulate a rear wheel drive car and assume that the car is perfectly symmetric at local zero.
     // This helps us to figure our which wheels are front ones and which are rear.
@@ -62,8 +93,6 @@ public class WheelDrive : MonoBehaviour
 
         angle = maxAngle * Input.GetAxis("Horizontal");
         torque = maxTorque * Input.GetAxis("Vertical");
-        handBrake = Input.GetKey(KeyCode.X) ? brakeTorque : 0;
-
 
         foreach (WheelCollider wheel in m_Wheels)
         {
