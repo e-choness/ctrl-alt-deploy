@@ -73,3 +73,7 @@ crashlytics-build.properties
 
 # Jetbrain IDE
 .idea
+
+# Compressed Package
+*.zip
+
