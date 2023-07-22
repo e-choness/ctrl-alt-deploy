@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = new Vector3(0.0f, 0.5f, 0.0f);
         _rigidbody.isKinematic = true;
+        
+        
     }
 
     void JumpBall()
@@ -77,5 +79,10 @@ public class PlayerController : MonoBehaviour
         _rigidbody.AddForce(Vector3.up * jumpHeight);
         Debug.Log($"{jumpHeight.ToString(CultureInfo.InvariantCulture)} performed.");
     }
- 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
+            other.gameObject.SetActive(false);
+    }
 }
