@@ -38,6 +38,8 @@ public class WheelDrive : MonoBehaviour
     public InputActionAsset primaryActions;
     private InputActionMap _gameplayActionMap;
     private InputAction _handbreakInputAction;
+    private InputAction _steeringAngleInputAction;
+    private InputAction _accelerationInputAction;
 
 
     // Find all the WheelColliders down in the hierarchy.
@@ -63,9 +65,18 @@ public class WheelDrive : MonoBehaviour
         _gameplayActionMap = primaryActions.FindActionMap("Gameplay");
 
         _handbreakInputAction = _gameplayActionMap.FindAction("Handbreak");
+        _steeringAngleInputAction = _gameplayActionMap.FindAction("Steering Angle");
+        _accelerationInputAction = _gameplayActionMap.FindAction("Acceleration");
 
         _handbreakInputAction.performed += GetHandbreakInput;
         _handbreakInputAction.canceled += GetHandbreakInput;
+
+        _steeringAngleInputAction.performed += GetAngleInput;
+        _steeringAngleInputAction.canceled += GetAngleInput;
+
+        _accelerationInputAction.performed += GetTorgueInput;
+        _accelerationInputAction.canceled += GetTorgueInput;
+
     }
 
     // This is where to update handbreak input
@@ -74,14 +85,28 @@ public class WheelDrive : MonoBehaviour
         handBrake = context.ReadValue<float>() * brakeTorque;
     }
 
+    private void GetAngleInput(InputAction.CallbackContext context)
+    {
+        angle = context.ReadValue<float>() * maxAngle;
+    }
+
+    private void GetTorgueInput(InputAction.CallbackContext context)
+    {
+        torque = context.ReadValue<float>() * maxTorque;
+    }
+
     private void OnEnable()
     {
         _handbreakInputAction.Enable();
+        _steeringAngleInputAction.Enable();
+        _accelerationInputAction.Enable();
     }
 
     private void OnDisable()
     {
         _handbreakInputAction.Disable();
+        _steeringAngleInputAction.Disable();
+        _accelerationInputAction.Disable();
     }
 
     // This is a really simple approach to updating wheels.
@@ -90,9 +115,6 @@ public class WheelDrive : MonoBehaviour
     void Update()
     {
         m_Wheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
-
-        angle = maxAngle * Input.GetAxis("Horizontal");
-        torque = maxTorque * Input.GetAxis("Vertical");
 
         foreach (WheelCollider wheel in m_Wheels)
         {
