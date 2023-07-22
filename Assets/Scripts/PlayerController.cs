@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public InputActionAsset playerControls;
+    public TextMeshProUGUI counterText;
+    public GameObject winTextObject;
     public float movementSpeed = 1.0f;
     public float jumpHeight = 100.0f;
 
@@ -18,9 +17,17 @@ public class PlayerController : MonoBehaviour
     private InputAction _resetInputAction;
     private InputAction _jumpInputAction;
     private Vector2 _move;
+    private int _counter;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Start()
+    {
+        _counter = 0;
+        SetCountText();
+        winTextObject.SetActive(false);
+    }
+
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerActionMap = playerControls.FindActionMap("Player");
@@ -39,7 +46,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         _moveActionMap.Enable();
         _jumpInputAction.Enable();
@@ -59,14 +66,14 @@ public class PlayerController : MonoBehaviour
         MoveBall();
     }
 
-    void MoveBall()
+    private void MoveBall()
     {
         var movementVector3 = new Vector3(_move.x, 0.0f, _move.y);
         _rigidbody.isKinematic = false;
         _rigidbody.AddForce(movementVector3 * movementSpeed);
     }
 
-    void ResetBall()
+    private void ResetBall()
     {
         transform.position = new Vector3(0.0f, 0.5f, 0.0f);
         _rigidbody.isKinematic = true;
@@ -74,7 +81,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void JumpBall()
+    private void JumpBall()
     {
         _rigidbody.AddForce(Vector3.up * jumpHeight);
         Debug.Log($"{jumpHeight.ToString(CultureInfo.InvariantCulture)} performed.");
@@ -83,6 +90,18 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PickUp"))
+        {
             other.gameObject.SetActive(false);
+            _counter++;
+            SetCountText();
+        }
+            
+    }
+
+    private void SetCountText()
+    {
+        counterText.text = $"Count: {_counter.ToString()}";
+        if(_counter >= 12)
+            winTextObject.SetActive(true);
     }
 }
