@@ -12,16 +12,16 @@ public class TestingGenerics : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        IEnemy<EnemyMinion> myClassMinion;
-        myClassMinion = new MyClass<EnemyMinion>(new EnemyMinion());
-        int[] intArray = myClassMinion.CreateArray(5, 6);
-        OutputArray(intArray);
-
-        IEnemy<EnemyArcher> myClassArcher = new MyClass<EnemyArcher>(new EnemyArcher());
-        string[] stringArray = myClassArcher.CreateArray("dadad", "daaddadsada");
-        OutputArray(stringArray);
+        // IEnemy<EnemyMinion> myClassMinion;
+        // myClassMinion = new MyClass<EnemyMinion>(new EnemyMinion());
+        // int[] intArray = myClassMinion.CreateArray(5, 6);
+        // OutputArray(intArray);
+        //
+        // IEnemy<EnemyArcher> myClassArcher = new MyClass<EnemyArcher>(new EnemyArcher());
+        // string[] stringArray = myClassArcher.CreateArray("dadad", "daaddadsada");
+        // OutputArray(stringArray);
         
-        TestMultiGenerics(intArray[0], stringArray[0]);
+        // TestMultiGenerics(intArray[0], stringArray[0]);
         
         
         // Debug.Log(myClassMinion.value.ToString());
