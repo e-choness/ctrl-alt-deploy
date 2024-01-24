@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class Grid2DSystem2D<T>
+public class GridSystem2D<T>
 {
     private int _width;
     private int _height;
@@ -11,9 +11,14 @@ public class Grid2DSystem2D<T>
     private T[,] _gridArray;
 
     private CoordinateConverter _coordinateConverter;
-
     public event Action<int, int, T> OnValueChangeEvent;
-    public Grid2DSystem2D(int width, int height, float cellSize, Vector3 origin,
+
+    public static GridSystem2D<T> VerticalGrid(int width, int height, float cellSize, Vector3 origin,
+        bool debug = false)
+    {
+        return new GridSystem2D<T>(width, height, cellSize, origin, new VerticalConverter(), debug);
+    }
+    public GridSystem2D(int width, int height, float cellSize, Vector3 origin,
         CoordinateConverter coordinateConverter, bool debug)
     {
         _width = width;
