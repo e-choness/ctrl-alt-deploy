@@ -5,17 +5,17 @@ namespace CandyCrush.Scripts
 {
     public class CandyCrash : MonoBehaviour
     {
-        [SerializeField] private int width = 0;
-        [SerializeField] private int height = 0;
+        [SerializeField] private int width;
+        [SerializeField] private int height ;
         [SerializeField] private float cellSize = 1.0f;
         [SerializeField] private Vector3 originPosition = Vector3.zero;
-        [SerializeField] private bool debug = true;
+        [SerializeField] private bool debug;
 
-        private GridSystem2D<GridObject<Gem>> _grid;
+        private GridSystem<GridObject<Gem>> _grid;
 
         private void Start()
         {
-            _grid = GridSystem2D<GridObject<Gem>>.VerticalGrid(width, height, cellSize, originPosition, debug);
+            _grid = GridSystem<GridObject<Gem>>.VerticalGrid(width, height, cellSize, originPosition, debug);
         }
     }
 }
