@@ -11,7 +11,7 @@ namespace CandyCrush.Scripts
         private InputAction _selectAction;
         private InputAction _fireAction;
 
-        public event Action fire;
+        public event Action Fire;
 
         public Vector2 Selected => _selectAction.ReadValue<Vector2>();
 
@@ -29,6 +29,6 @@ namespace CandyCrush.Scripts
             _fireAction.performed -= OnFire;
         }
 
-        private void OnFire(InputAction.CallbackContext context) => fire?.Invoke();
+        private void OnFire(InputAction.CallbackContext context) => Fire?.Invoke();
     }
 }
