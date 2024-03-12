@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -37,18 +34,18 @@ namespace CandyCrush.Scripts
         private void Awake()
         {
             _inputReader = GetComponent<InputReader>();
-            _audioManager = GetComponent<AudioManager>();
+            _audioManager = FindAnyObjectByType<AudioManager>();
         }
 
         private void Start()
         {
             InitializeGrid();
-            _inputReader.Fire += OnSelectGem;
+            _inputReader.OnFire += SelectGem;
         }
 
         private void OnDestroy()
         {
-            _inputReader.Fire -= OnSelectGem;
+            _inputReader.OnFire -= SelectGem;
         }
 
         private void InitializeGrid()
@@ -76,8 +73,9 @@ namespace CandyCrush.Scripts
             _grid.SetValue(x,y,gridObject);
         }
 
-        private void OnSelectGem()
+        private void SelectGem()
         {
+            Debug.Log("Candy Crash - OnSelectGem().");
             var gridPosition = _grid.GetXY(Camera.main.ScreenToWorldPoint(_inputReader.Selected));
 
             if (!IsValidPosition(gridPosition) || IsEmptyPosition(gridPosition)) return;
@@ -100,7 +98,7 @@ namespace CandyCrush.Scripts
         {
             yield return StartCoroutine(SwapGems(gridPositionFirst, gridPositionLast));
 
-            List<Vector2Int> matches = FindMatches();
+            var matches = FindMatches();
 
             yield return StartCoroutine(ExplodeGems(matches));
 

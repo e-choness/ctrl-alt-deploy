@@ -1,34 +1,46 @@
-﻿using System;
+﻿
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace CandyCrush.Scripts
 {
-    [RequireComponent(typeof(PlayerInput))]
     public class InputReader : MonoBehaviour
     {
-        private PlayerInput _playerInput;
+        private GemActions _playerInput;
         private InputAction _selectAction;
         private InputAction _fireAction;
 
-        public event Action Fire;
+        public event Action OnFire;
 
         public Vector2 Selected => _selectAction.ReadValue<Vector2>();
 
-        private void Start()
+        private void Awake()
         {
-            _playerInput = GetComponent<PlayerInput>();
-            _selectAction = _playerInput.actions["Select"];
-            _fireAction = _playerInput.actions["Fire"];
-
-            _fireAction.performed += OnFire;
+            _playerInput = new();
+            _selectAction = _playerInput.Player.Select;
+            _fireAction = _playerInput.Player.Fire;
         }
 
-        private void OnDestroy()
+        private void OnEnable()
         {
-            _fireAction.performed -= OnFire;
+            
+            _selectAction.Enable();
+            _fireAction.Enable();
+            _fireAction.performed += Fire;
         }
 
-        private void OnFire(InputAction.CallbackContext context) => Fire?.Invoke();
+        private void OnDisable()
+        {
+            _fireAction.performed -= Fire;
+            _selectAction.Disable();
+            _fireAction.Disable();
+        }
+
+        private void Fire(InputAction.CallbackContext context)
+        {
+            Debug.Log("Input Reader - Fire().");
+            OnFire?.Invoke();
+        }
     }
 }
