@@ -13,7 +13,15 @@ namespace CandyCrush.Scripts
 
         public event Action OnFire;
 
-        public Vector2 Selected => _selectAction.ReadValue<Vector2>();
+        public Vector2 Selected
+        {
+            get
+            {
+                var selected = _selectAction.ReadValue<Vector2>();
+                Debug.Log($"Input Reader - Selected: {selected}");
+                return selected;
+            }
+        }
 
         private void Awake()
         {

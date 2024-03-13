@@ -33,7 +33,7 @@ namespace CandyCrush.Scripts
 
         private void Awake()
         {
-            _inputReader = GetComponent<InputReader>();
+            _inputReader = FindAnyObjectByType<InputReader>();
             _audioManager = FindAnyObjectByType<AudioManager>();
         }
 
@@ -75,8 +75,9 @@ namespace CandyCrush.Scripts
 
         private void SelectGem()
         {
-            Debug.Log("Candy Crash - OnSelectGem().");
+            
             var gridPosition = _grid.GetXY(Camera.main.ScreenToWorldPoint(_inputReader.Selected));
+            Debug.Log($"Candy Crash - OnSelectGem() at grid position: {gridPosition}");
 
             if (!IsValidPosition(gridPosition) || IsEmptyPosition(gridPosition)) return;
             if (_selectedGem == gridPosition)
