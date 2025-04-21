@@ -35,7 +35,7 @@ keywords: [platform as a service, backend, devops, engineering]
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo: /assets/img/icons/ctrl-alt-deploy-logo-2.png
+logo: /assets/img/logo-2.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -92,7 +92,7 @@ favicon: /assets/img/icons/ctrl-alt-deploy-favicon-solid.png
 apple_touch_icon: /assets/img/icons/ctrl-alt-deploy-favicon-solid.png
 
 # Sidebar image and theme color of the site.
-accent_image: /assets/img/background/ctrl-alt-deploy-background.jpg
+accent_image: /assets/img/background.jpg
 accent_color: rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
