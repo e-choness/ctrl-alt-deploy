@@ -1,7 +1,5 @@
-# Candy Crush Clone
+# Ctrl Alt Deploy
 
-A Candy Crush Game code along, learn some tips and tricks about Unity.
+A blog where (hopefully) you and I can systematically learn something about Platform Engineering.
 
-## Credits
-
-[Match3](https://github.com/adammyhre/Match3) by [adammyhre](https://github.com/adammyhre)
+The site is under construction.

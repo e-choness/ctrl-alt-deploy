@@ -1,6 +1,0 @@
-{
-    "name": "GameplayTests",
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ]
-}
