@@ -27,7 +27,7 @@ description: >
   A blog where (hopefully) you and I can systematically learn something about Platform Engineering.
 
 # A shorter description for the sidebar.
-tagline: Self-Service (Without Self-Destruction)
+tagline: Let's platform our way to Self-Service (Without Self-Destruction)
 
 # A list of keywords for your blog
 keywords: [platform as a service, backend, devops, engineering]
