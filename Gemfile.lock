@@ -87,6 +87,7 @@ DEPENDENCIES
   base64
   bigdecimal
   csv
+  google-protobuf
   jekyll
   jekyll-feed
   jekyll-paginate
