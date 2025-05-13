@@ -3,6 +3,7 @@ layout: page
 title: About Me
 permalink: /about.html
 hideHomeActive: true
+lang: en-US
 ---
 
 ## Hi there 👋, my name is Echo
