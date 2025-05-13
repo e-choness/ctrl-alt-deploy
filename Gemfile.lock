@@ -35,8 +35,6 @@ GEM
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
     jekyll-paginate (1.1.0)
-    jekyll-pdf-embed (1.1.3)
-      jekyll
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
     jekyll-sitemap (1.4.0)
@@ -87,7 +85,6 @@ DEPENDENCIES
   csv
   jekyll
   jekyll-paginate
-  jekyll-pdf-embed
   jekyll-sitemap
   tzinfo-data
 
