@@ -1,13 +1,13 @@
 {
-  "name": "tw93",
-  "author": "Tw93<tw93@qq.com>",
-  "homepage": "https://tw93.fun",
+  "name": "e-choness",
+  "author": "echo_ybl@hotmail.com",
+  "homepage": "https://e-choness.github.io/ctrl-alt-deploy",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tw93/tw93.github.io"
+    "url": "https://github.com/e-choness/ctrl-alt-deploy"
   },
   "bugs": {
-    "url": "https://github.com/tw93/tw93.github.io/issues"
+    "url": "https://github.com/e-choness/ctrl-alt-deploy/issues"
   },
   "scripts": {
     "prep": "gem install bundler && bundle install",
