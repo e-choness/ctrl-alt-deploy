@@ -1,3 +1,14 @@
+_site
+.sass-cache
+.DS_Store
+.bower_components
+.idea
+node_modules
+# Ignore the config file that's used for gh-pages.
+_config.gh-pages.yml
+.jekyll-cache
+.vscode
+
 # Ignore docs files
 _site
 _drafts
@@ -16,6 +27,7 @@ dist
 *~
 
 # OS or Editor folders
+.sass-cache
 .DS_Store
 ._*
 Thumbs.db
@@ -27,6 +39,7 @@ Thumbs.db
 nbproject
 *.sublime-project
 *.sublime-workspace
+.bower_components
 .idea
 
 # Folders to ignore
@@ -35,6 +48,8 @@ package-lock.json
 vendor
 .sass-cache
 .jekyll-metadata
+# Ignore the config file that's used for gh-pages.
+_config.gh-pages.yml
 .jekyll-cache
 .ruby-lsp
 .wrangler
@@ -46,3 +61,4 @@ _zip
 
 /assets/js/*hydejack-*
 /_sass/*/__*__/*
+.vscode
