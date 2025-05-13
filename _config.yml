@@ -60,7 +60,6 @@ plugins:
   - jekyll-paginate
   - jekyll-pdf-embed
   - jekyll-sitemap
-  - jekyll-feed
 
 # Custom Site Settings
 showBuyCoffee: true
