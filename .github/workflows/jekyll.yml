@@ -40,6 +40,17 @@ jobs:
           ruby-version: "3.2.2" # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
+      # Add this step to install build tools
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      - name: Install dependencies (if not using bundler-cache)
+        run: bundle install # Or your npm script that runs bundle install, e.g., npm run prep
+
+      - name: Build site # Example next step
+        run: npm run build # Or bundle exec jekyll build
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
