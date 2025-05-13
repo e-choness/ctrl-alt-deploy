@@ -58,7 +58,6 @@ exclude:
 # Plugins
 plugins:
   - jekyll-paginate
-  - jekyll-pdf-embed
   - jekyll-sitemap
 
 # Custom Site Settings
