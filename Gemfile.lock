@@ -83,7 +83,7 @@ DEPENDENCIES
   base64
   bigdecimal
   csv
-  jekyll
+  jekyll (~> 4.2)
   jekyll-paginate
   jekyll-sitemap
   tzinfo-data
