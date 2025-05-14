@@ -1,67 +1,90 @@
-# Site Information
+### Site Settings ###
 title: Ctrl Alt Deploy
-description: "Let's platform our way to self-service (without self-desctruction)."
-url: https://e-choness.github.io/ctrl-alt-deploy/
-repo: e-choness/ctrl-alt-deploy
-lang: en-CA
-timezone: America/Denver
+description: >-
+  Let's platform our way to self-service (without self-destruction).
+baseurl: "" # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
+repository: e-choness/ctrl-alt-deploy # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
+remote_theme: yousinix/portfolYOU
+open_new_tab: false # Opens external URLs in new tab (works for posts, projects and navbar only)
 
-# Social Media and External URLs
-github: e-choness
-twitter: _echo_yin
-menu:
-  - title: "Categories"
-    url: "/categories.html"
-  - title: "About"
-    url: "/about.html"
-  - title: "My Profile"
-    url: "https://e-choness.github.io/portfolio-site/"
-
-# SEO and Analytics
-google_analytics: G-966E405NES
-
-# Build Settings
-paginate: 10
-post_ext: md
-page_ext: md
-post_layout: post
-page_layout: page
-titlecase: true
-future: true
-highlighter: rouge
-markdown: kramdown
-permalink: /:year-:month-:day/:title.html
-sass:
-  sass_dir: _sass
-  style: compressed
-
-collections:
-  posts:
-    output: true
-    permalink: /:year-:month-:day/:title.html
-  posts_en:
-    output: true
-    permalink: /en/:year-:month-:day/:title.html
-    sort_by: date
-
-include: [".htaccess"]
-exclude:
-  [
-    "Gemfile",
-    "Gemfile.lock",
-    "README.md",
-    "LICENSE",
-    "package.json",
-    "node_modules",
-  ]
-
-# Plugins
+### Plugins ###
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
+  - jemoji
 
-# Custom Site Settings
-showBuyCoffee: true
-payImage: //gw.alipayobjects.com/zos/k/vb/1.png
-assetUrl: //tw93.fun/images/
-defaultImage: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+### Navbar Settings ###
+nav_exclude: # The following paths are excluded from navbar
+  - pages/tags.html
+  - pages/404.html
+  - pages/index.md
+
+### Author Info ###
+author:
+  name: Beili (Echo) Yin
+  image: assets/images/Echo.jpg
+  # behance: your_username
+  # dribbble          : your_username
+  email: echoybl1123@gmail.com
+  facebook: echo.ybl
+  github: e-choness
+  # gitlab            : your_username
+  # instagram         : your_username
+  # kaggle            : your_username
+  linkedin: echoyin0451
+  medium: echoness
+  # soundcloud        : your_username
+  # spotify           : your_username
+  # stackoverflow     : your_user_id
+  # tumblr            : your_username.tumblr.com
+  # twitch            : your_username
+  twitter: _echo_yin
+# vimeo             : your_username
+# youtube           : your_channel_name
+# keybase           : your_username
+
+### Posts ###
+permalink: /blog/:title
+
+### Collections ###
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name
+
+### Disqus ###
+disqus:
+  shortname: your-short-name-disqus # Your website Shortname on disqus
+
+### Analytics ###
+analytics:
+  enabled: false # Set true to enable analytics
+  google:
+    tracking_id: your-google-tracking-id
+
+### Buy me a coffee ###
+# See https://www.buymeacoffee.com/
+buymeacoffee:
+  enabled: false
+  username: echoness
+  color: "#007bff"
+  message: "Thank you for visiting." # Message to be displayed aside from the button for a few seconds.
+  description: "Support me on Buy me a coffee!"
+
+### Defaults for collections ###
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: false # Set to true to enable disqus comments
+
+### Exclude from processing ###
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - "*.log"
