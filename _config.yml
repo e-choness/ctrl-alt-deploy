@@ -2,8 +2,8 @@
 title: Ctrl Alt Deploy
 description: >-
   Let's platform our way to self-service (without self-destruction).
-baseurl: "" # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
-repository: e-choness # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
+baseurl: "/ctrl-alt-deploy" # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
+repository: e-choness/ctrl-alt-deploy # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme: yousinix/portfolYOU
 open_new_tab: false # Opens external URLs in new tab (works for posts, projects and navbar only)
 
