@@ -19,6 +19,8 @@ New perspective: Developers using the platform are treated like customers
 
 Product management basics: User research, user centric design, product roadmap, feedback loops, product marketing, etc.
 
+![platform-engineer](../assets/blogs/platform-engineer.png)
+
 Devs benefit:
 
 - Enable developer self-service, eliminate ticket ops
