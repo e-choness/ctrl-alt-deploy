@@ -1,6 +1,6 @@
 ---
 title: Notes on Platform Engineering
-tags: [Platform, DevOps, Software, Engineering]
+tags: [Platform Engineering, Overviews]
 style: fill
 color: light
 description: Understanding devs' pain points and building a compelling product is the only way to ensure adoption.
