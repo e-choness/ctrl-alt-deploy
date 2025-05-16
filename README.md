@@ -7,7 +7,7 @@ It is written in a easily digestive and relatable way than docs simply reads bla
 
 ## Update
 
-![logo](/assets/logo/logo.jpg)
+![logo](/assets/logo/banner.jpg)
 
 The site is live, please check it out [here](https://e-choness.github.io/ctrl-alt-deploy/).
 
