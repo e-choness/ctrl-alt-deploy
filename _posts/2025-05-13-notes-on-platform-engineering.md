@@ -8,7 +8,7 @@ description: Understanding devs' pain points and building a compelling product i
 
 ## **Platform as a Product**
 
-Forget short-term projects with fixed deadlines. A platform team is not wrapping up a deliverable—it’s managing a product for life.
+Forget short-term projects with fixed deadlines. A platform team is not wrapping up a deliverable, it’s managing a product for life.
 
 Developers are not internal users. They are customers, complete with feedback, feature requests, and opinions about your UI.
 
