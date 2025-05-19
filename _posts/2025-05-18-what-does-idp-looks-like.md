@@ -3,7 +3,7 @@ title: Chapter 1.5 - But What Does a Good Internal Developer Platform Actually L
 tags: [Platform Engineering, Chapter One]
 style: fill
 color: primary
-description: You’ve got the ambition and a handful of CI pipelines. Now comes the real question, how do you turn that scattered tooling into a cohesive platform devs will actually use? This chapter walks through what matters most: understanding workflows, assembling the right components, paving golden paths, and choosing tech that won’t betray you mid-quarter.
+description: You’ve got the ambition and a handful of CI pipelines. Now comes the real question, how do you turn that scattered tooling into a cohesive platform devs will actually use? This chapter walks through what matters most understanding workflows, assembling the right components, paving golden paths, and choosing tech that won’t betray you mid-quarter.
 ---
 
 ![chapter-1-5-meme](../assets/blogs/chapter-1-5-meme.jpg)
