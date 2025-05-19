@@ -1,5 +1,5 @@
 ---
-title: 1.4 So You Want to Be a Platform Engineer (Do You?)
+title: Chatper 1.4 - So You Want to Be a Platform Engineer (Do You?)
 tags: [Platform Engineering, Chapter One]
 style: fill
 color: primary
