@@ -406,7 +406,7 @@ After successful publication, you can log in to [hub.docker.com](https://hub.doc
 
 While the primary Docker usage is covered above, several other commands are also very useful.
 
-### (1) `docker container start`
+### `docker container start`
 
 The preceding `docker container run` command creates a _new_ container; each time you run it, a new container is generated. Running the same command twice will create two identical container files. If you want to reuse a container that has already been created and stopped, use the `docker container start` command:
 
@@ -414,7 +414,7 @@ The preceding `docker container run` command creates a _new_ container; each tim
 $ docker container start [containerID]
 ```
 
-### (2) `docker container stop`
+### `docker container stop`
 
 The `docker container kill` command forcefully terminates a container's execution, equivalent to sending a `SIGKILL` signal to the container's main process. The `docker container stop` command also stops a container, but it's a more graceful shutdown: it sends a `SIGTERM` signal to the container's main process, allowing the application to perform cleanup, and then after a timeout, it sends a `SIGKILL` if the process hasn't exited.
 
@@ -424,7 +424,7 @@ $ docker container stop [containerID]
 
 The difference between these signals is that an application can gracefully perform cleanup when it receives a `SIGTERM` signal (or ignore it). If it receives a `SIGKILL` signal, it's forcibly terminated immediately, and any ongoing operations will be lost.
 
-### (3) `docker container logs`
+### `docker container logs`
 
 The `docker container logs` command is used to view the output of a Docker container, specifically the container's standard output (from its Shell). If you didn't use the `-it` parameter when running the container with `docker run`, you'll need this command to view its output.
 
@@ -432,7 +432,7 @@ The `docker container logs` command is used to view the output of a Docker conta
 $ docker container logs [containerID]
 ```
 
-### (4) `docker container exec`
+### `docker container exec`
 
 The `docker container exec` command is used to enter a running Docker container. If you didn't use the `-it` parameter when running the container with `docker run`, you'll need this command to get inside it. Once inside the container, you can execute commands in its shell.
 
@@ -440,7 +440,7 @@ The `docker container exec` command is used to enter a running Docker container.
 $ docker container exec -it [containerID] /bin/bash
 ```
 
-### (5) `docker container cp`
+### `docker container cp`
 
 The `docker container cp` command is used to copy files from a running Docker container to your local machine. Here's how to copy a file to the current directory:
 
