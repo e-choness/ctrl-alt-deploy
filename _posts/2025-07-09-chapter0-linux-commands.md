@@ -44,7 +44,7 @@ Now, let's explore over 100 of the most commonly used Linux commands. Many of th
 
 ## **Linux File Management Commands**
 
-### **1. `ls` – List Directory Contents**
+**1. `ls` – List Directory Contents**
 
 `ls` is likely the very first command every Linux user types into their terminal. It allows you to list the contents of any desired directory (the current directory by default), including files and other nested directories.
 
@@ -80,7 +80,7 @@ Now that the `ls` command output is colorized, you can easily distinguish betwee
 
 However, typing the `--color` flag every time is inefficient. This is precisely why we use command **aliases**.
 
-### **2. `cd` – Change Directory**
+**2. `cd` – Change Directory**
 
 The `cd` command, alongside `ls`, is incredibly popular. It stands for "change directory," and as its name suggests, it allows you to navigate to the directory you wish to access.
 
@@ -128,7 +128,7 @@ There are a few tricks you can use with the `cd` command to save a lot of time:
    cd -
    ```
 
-### **3. `mkdir` – Create New Directories**
+**3. `mkdir` – Create New Directories**
 
 To create a folder in your shell, you can use the `mkdir` command. Simply specify the name of your new folder, ensure it doesn't already exist, and you're good to go.
 
@@ -157,7 +157,7 @@ To create subdirectories with a single command, use the parent (`-p`) flag:
 mkdir -p movies/2004/
 ```
 
-### **4. `rmdir` – Remove Directories**
+**4. `rmdir` – Remove Directories**
 
 To remove an empty directory, use the `rmdir` command. Please note that `rmdir` can only delete empty directories; we need to use the `rm` command to remove non-empty directories.
 
@@ -180,7 +180,7 @@ rmdir -v ~/project/code
 
 This will remove the "code" subdirectory under "project" while displaying detailed output.
 
-### **5. `touch` – Create New Empty Files**
+**5. `touch` – Create New Empty Files**
 
 The `touch` command allows you to update the access and modification times of a specified file.
 
@@ -195,17 +195,11 @@ touch [options] filename
 - `-c` – Does not create the file if it already exists. This prevents accidental overwriting of existing files.
 - `-m` – Updates only the modification timestamp of an existing file, rather than creating a new one. This can be used to change the modification time.
 
-For example, if you have an old file last modified on April 12th:
-[Image: Old date]
-
 To change its modification date to the current time, we need to use the `-m` flag:
 
 ```bash
 touch -m old_file
 ```
-
-Now the date matches today's date (August 8th, when this article began being written).
-[Image: New date]
 
 Nevertheless, most of the time, you won't use `touch` to modify file dates, but rather to create new empty files:
 
@@ -213,7 +207,7 @@ Nevertheless, most of the time, you won't use `touch` to modify file dates, but 
 touch new_file_name
 ```
 
-### **6. `cp` – Copy Files and Directories**
+**6. `cp` – Copy Files and Directories**
 
 Copying files and folders directly on the Linux terminal is incredibly easy, and sometimes it can even replace traditional file managers.
 
@@ -243,7 +237,7 @@ cp -r dir_to_copy/ new_copy_dir/
 
 Remember that in Linux, folders end with a forward slash (`/`).
 
-### **7. `mv` – Move or Rename Files and Directories**
+**7. `mv` – Move or Rename Files and Directories**
 
 You can use the `mv` command to move (or rename) files and directories within your file system.
 
@@ -282,7 +276,7 @@ You can also use `mv` to rename a file while keeping it in the same directory:
 mv old_file.txt new_named_file.txt
 ```
 
-### **8. `rm` – Remove Files and Directories**
+**8. `rm` – Remove Files and Directories**
 
 Now that you know how to copy files, it will be helpful to understand how to delete them.
 
@@ -320,7 +314,7 @@ rm -rf dir_with_content_to_remove/
 
 **Warning:** Misusing these two flags could wipe out an entire day's work\!
 
-### **9. `find` – Search for Files in a Directory Hierarchy**
+**9. `find` – Search for Files in a Directory Hierarchy**
 
 The `find` command recursively searches directories for files that match given criteria.
 
@@ -370,7 +364,7 @@ This will print the total size of the "pictures" directory in a user-friendly fo
 **Linux Search and Filter Commands**
 Now, let's explore commands that allow you to search, filter, and process text directly within the Linux command line.
 
-### **11. `grep` Command – Search Text with Conditional Matching**
+**11. `grep` Command – Search Text with Conditional Matching**
 
 `grep` is one of the most powerful tools for working with text files.
 
@@ -393,8 +387,6 @@ It searches for lines that match a regular expression and prints them. For examp
 grep "linux" long.txt
 ```
 
-[Image: `grep` command]
-
 You can use the `-c` flag to count the number of times a given condition matches:
 
 ```bash
@@ -402,7 +394,7 @@ grep -c "linux" long.txt
 # 2
 ```
 
-### **12. `awk` – Conditional Scanning and Processing Language**
+**12. `awk` – Conditional Scanning and Processing Language**
 
 The `awk` command allows for more advanced text processing based on specified conditions and actions. It operates line by line, splitting each line into fields.
 
@@ -429,7 +421,7 @@ This will print the first field of any line containing "error." `awk` can also u
 
 `awk` is incredibly powerful because it is a standalone programming language, and as a Linux command, it gives you a lot of control.
 
-### **13. `sed` – Stream Editor for Filtering and Transforming Text**
+**13. `sed` – Stream Editor for Filtering and Transforming Text**
 
 The `sed` command allows for filtering and transforming text. It can perform search/replace, deletion, shifting, and other operations. However, unlike `awk`, `sed` is designed for line-by-line editing based on instructions.
 
@@ -456,7 +448,7 @@ This will replace "foo" with "bar" in `file.txt`.
 
 `sed` is perfect for bulk find/replace operations, selective line deletion, and other text stream editing tasks.
 
-### **14. `sort` – Sort Lines of Text Files**
+**14. `sort` – Sort Lines of Text Files**
 
 When you're dealing with large amounts of text or data, or even a lot of content outputted from other commands, sorting is a great way to make things manageable. The `sort` command will sort lines of text files alphabetically or numerically.
 
@@ -480,7 +472,7 @@ sort -n grades.txt
 
 This will numerically sort the contents of `grades.txt`. Sorting facilitates ordering file contents, making output or analysis more readable.
 
-### **15. `uniq` – Report or Omit Duplicate Lines**
+**15. `uniq` – Report or Omit Duplicate Lines**
 
 The `uniq` command filters out duplicate adjacent lines from input. This command is often used in conjunction with the `sort` command.
 
@@ -875,8 +867,6 @@ Using `ps`, you can view the processes currently running in your shell session. 
 ps
 ```
 
-[Image: `ps` command]
-
 **Example:**
 
 ```bash
@@ -909,8 +899,6 @@ The command above monitors only processes for the "mysql" user. It's helpful for
 ```bash
 htop
 ```
-
-[Image: "htop" interactive interface]
 
 Simply type `htop` in your command line to view processes. Compared to `top`, `htop` has enhanced user interface elements, adding color, scrolling, and mouse support for easier navigation. It's excellent for investigating processes.
 
@@ -1107,8 +1095,6 @@ The command above creates a new "sysadmin" group with system privileges. When cr
 passwd
 ```
 
-[Image: `passwd` command]
-
 **Example:**
 
 ```bash
@@ -1127,7 +1113,7 @@ These commands are used for monitoring connections, troubleshooting networks, ro
 ping google.com
 ```
 
-```
+```bash
 PING google.com (142.251.42.78): 56 data bytes
 64 bytes from 142.251.42.78: icmp_seq=0 ttl=112 time=8.590 ms
 64 bytes from 142.251.42.78: icmp_seq=1 ttl=112 time=12.486 ms
@@ -1154,7 +1140,7 @@ The `ifconfig` command displays and configures network interface settings, inclu
 ifconfig
 ```
 
-```
+```bash
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
         inet6 fe80::a00:27ff:fe1e:ef1d  prefixlen 64  scopeid 0x20<link>
@@ -1209,7 +1195,7 @@ The `dig` command performs DNS lookups and returns DNS record information for a 
 dig google.com
 ```
 
-```
+```bash
 ; <<>> DiG 9.10.6 <<>> google.com
 ;; global options: +cmd
 ;; Got answer:
@@ -1299,7 +1285,7 @@ The `ip` command allows you to manage and monitor various network device-related
 ip link show
 ```
 
-```
+```bash
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
@@ -1469,7 +1455,7 @@ uname -a
 uname -a
 ```
 
-```
+```bash
 Linux hostname 5.4.0-48-generic x86_64 GNU/Linux
 ```
 
@@ -1495,7 +1481,7 @@ The `hostname` command will print or set the hostname identifier for your Linux 
 hostname
 ```
 
-```
+```bash
 linuxserver
 ```
 
@@ -1516,7 +1502,7 @@ Simply run the command below to get your system's uptime data:
 uptime
 ```
 
-```
+```bash
 23:51:26 up 2 days, 4:12, 1 user, load average: 0.00, 0.01, 0.05
 ```
 
@@ -1545,7 +1531,7 @@ Type the command in your terminal to get the ID:
 whoami
 ```
 
-```
+```bash
 john
 ```
 
@@ -1565,7 +1551,7 @@ To use the `id` command, simply type:
 id
 ```
 
-```
+```bash
 uid=1000(john) gid=1000(john) groups=1000(john),10(wheel),998(developers)
 ```
 
@@ -1587,7 +1573,7 @@ To use the `lscpu` command, simply type:
 lscpu
 ```
 
-```
+```bash
 Architecture:        x86_64
 CPU op-mode(s):      32-bit, 64-bit
 Byte Order:          Little Endian
@@ -1604,7 +1590,7 @@ The `lsblk` command lists information about all available block devices, includi
 lsblk
 ```
 
-```
+```bash
 NAME    MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
 sda       8:0    0   1.8T  0 disk
 |-sda1    8:1    0   512M  0 part  /boot
@@ -1622,7 +1608,7 @@ The `lsmod` command prints currently loaded kernel modules (like device drivers)
 lsmod
 ```
 
-```
+```bash
 Module                  Size  Used by
 ipv6                  406206  27
 evdev                   17700  0
@@ -1642,7 +1628,7 @@ The `dmesg` command dumps information from the kernel ring buffer. This includes
 dmesg | grep -i error
 ```
 
-```
+```bash
 [   12.345678] Error receiving batched read response: -110
 [   23.456789] tplink_mdio 0000:03:00.0: Direct firmware load for tplink-mdio/leap_p8_v1_0.bin failed with error -2
 [   40.567890] iwlwifi 0000:09:00.0: Direct firmware load for iwlwifi-ty-a0-gf-a0-59.ucode failed with error -2
@@ -1720,7 +1706,7 @@ Another example:
 shutdown -r now
 ```
 
-```
+```bash
 Broadcast message from root@linux Fri 2023-01-20 18:12:37 CST:
 
 The system is going down for reboot NOW!
@@ -1737,7 +1723,7 @@ The `reboot` command restarts the Linux operating system, logging out all users 
 reboot
 ```
 
-```
+```bash
 Restarting system.
 ```
 
@@ -1752,7 +1738,7 @@ The `systemctl` command allows you to manage `systemd` services, such as startin
 systemctl start apache2
 ```
 
-```
+```bash
 ==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
 Authentication is required to start 'apache2.service'.
 Authenticating as: User Name
@@ -1771,13 +1757,13 @@ The `service` command runs System V init scripts used to control services. This 
 service iptables start
 ```
 
-```
+```bash
 [ ok ] Starting iptables (via systemctl): iptables.service.
 ```
 
 The command above started the `iptables` firewall service using its SysV init script.
 
-**More Linux Commands**
+## **More Linux Commands**
 
 **84. `mount`** – Mounts or "connects" a hard drive to your system.
 **85. `umount`** – Unmounts or "removes" a hard drive from your system.
@@ -1794,8 +1780,6 @@ As you can see, the `alias` command takes a key-value pair argument: `alias NAME
 alias
 ```
 
-[Image: `alias` command]
-
 **88. `jobs`** – Lists programs currently running as background tasks.
 **89. `bg`** – Resumes stopped or paused background processes.
 **90. `killall`** – Terminates processes by program name instead of PID.
@@ -1804,8 +1788,6 @@ alias
 ```bash
 history
 ```
-
-[Image: `history` command]
 
 **92. `man`** – Accesses a command's help manual directly in the terminal. Another important Linux command is `man`. It displays the manual page for any other command (as long as one exists). To see the manual page for the `mkdir` command, type:
 
@@ -1818,8 +1800,6 @@ You can even view the `man` command's manual page:
 ```bash
 man man
 ```
-
-[Image: `man` command manual page]
 
 **93. `screen`** – Manages multiple terminal sessions from one window.
 **94. `ssh`** – Establishes secure, encrypted connections to remote servers.
@@ -1866,26 +1846,29 @@ exit
 
 **105. `apt`, `yum`, `pacman` commands** – Regardless of which Linux distribution you are using, you are likely using a package manager to install, update, and delete the software you use daily. You can access these package managers through the command line and use one or another depending on the distribution your computer is running. The examples below will install GIMP, a free and open-source software usually available in most package managers:
 
-1.  **Debian-based (Ubuntu, Linux Mint)**
-    ```bash
-    sudo apt install gimp
-    ```
-2.  **Red Hat-based (Fedora, CentOS)**
-    ```bash
-    sudo yum install gimp
-    ```
-3.  **Arch-based (Manjaro, Arco Linux)**
-    ```bash
-    sudo pacman -S gimp
-    ```
+1. **Debian-based (Ubuntu, Linux Mint)**
+
+   ```bash
+   sudo apt install gimp
+   ```
+
+2. **Red Hat-based (Fedora, CentOS)**
+
+   ```bash
+   sudo yum install gimp
+   ```
+
+3. **Arch-based (Manjaro, Arco Linux)**
+
+   ```bash
+   sudo pacman -S gimp
+   ```
 
 **106. `echo`** – Displays defined text in the terminal. The `echo` command displays defined text in the terminal – it's that simple:
 
 ```bash
 echo "Cool message"
 ```
-
-[Image: `echo` command]
 
 Its main use is to print environment variables within these messages:
 
@@ -1900,15 +1883,11 @@ echo "Hey $USER"
 cat long_text_file.txt
 ```
 
-[Image: `cat` command]
-
 **108. `vim`** – Edits plain text files with efficient keybindings. `vim` is a free and open-source terminal text editor that has been around since the 90s. It allows you to edit plain text files using efficient keybindings. Some find it difficult to use – exiting Vim is one of the most common StackOverflow questions – but once you get used to it, it becomes one of your best allies in the command line. To launch Vim, simply type:
 
 ```bash
 vim
 ```
-
-[Image: `vim` text editor]
 
 **109. `which`** – Outputs the full path of a shell command. The `which` command outputs the full path of a shell command. If it cannot recognize the given command, it will throw an error. For example, we can use it to check the binary paths for Python and the Brave web browser:
 
@@ -1920,15 +1899,12 @@ which brave
 ```
 
 **110. `shred`** – This command repeatedly overwrites a file's contents. If you want a file to be almost unrecoverable, `shred` can help you with this task. This command repeatedly overwrites a file's contents, making the given file extremely difficult to recover. Here's a file with little content:
-[Image: Shredding file]
 
 Now, let's do the job by typing the `shred` command:
 
 ```bash
 shred file_to_shred.txt
 ```
-
-[Image: Overwriting content]
 
 If you want to delete the file immediately, you can use the `-u` flag:
 
@@ -1942,8 +1918,6 @@ shred -u file_to_shred.txt
 less large_text_file.txt
 ```
 
-[Image: `less` command]
-
 The advantage of `less` is that it incorporates both `more` and `vim` commands within its interface. If you need something more interactive than `cat`, `less` is a good choice.
 
 **112. `tail`** – Prints the last few lines of a file's content. Similar to `cat`, `tail` prints file content with one major caveat: it only outputs the last few lines. By default, it prints the last 10 lines, but you can modify that number using `-n`. For example, to print the last few lines of a large text file, you can use:
@@ -1952,15 +1926,11 @@ The advantage of `less` is that it incorporates both `more` and `vim` commands w
 tail long.txt
 ```
 
-[Image: `tail` command]
-
 To view only the last four lines, do:
 
 ```bash
 tail -n 4 long.txt
 ```
-
-[Image: `tail` command last four lines]
 
 **113. `head`** – Outputs the first 10 lines of a text file. This is the complement to the `tail` command. `head` outputs the first 10 lines of a text file, but you can set any number of lines to display using the `-n` flag:
 
@@ -1968,8 +1938,6 @@ tail -n 4 long.txt
 head long.txt
 head -n 5 long.txt
 ```
-
-[Image: `head` command]
 
 **114. `whatis`** – Prints a single-line description of any other command. `whatis` prints a single-line description of any other command, making it a useful reference:
 
@@ -1986,19 +1954,17 @@ whatis whatis
 neofetch
 ```
 
-[Image: `neofetch` command]
-
 On most computers, this command is not available by default, so be sure to install it first using your package manager.
 
-**7 Top Tips for Using Linux Commands**
+## **7 Top Tips for Using Linux Commands**
 
-1.  **Know Your Shell:** Bash, zsh, or fish? Different shells have unique features. Choose the one that best suits your needs.
-2.  **Master Core Tools:** `ls`, `cat`, `grep`, `sed`, `awk`, etc., form the core of the Linux toolkit.
-3.  **Stick to Pipes:** Avoid using too many temporary files. Skillfully pipe programs together.
-4.  **Verify Before Overwriting:** Always double-check before overwriting files using `>` and `>>`.
-5.  **Track Workflows:** Document complex commands and workflows for future reuse or sharing.
-6.  **Craft Your Own Tools:** Write simple shell scripts and aliases for frequently performed tasks.
-7.  **Start Without `sudo`:** Initially use a standard user account to understand permissions.
+1. **Know Your Shell:** Bash, zsh, or fish? Different shells have unique features. Choose the one that best suits your needs.
+2. **Master Core Tools:** `ls`, `cat`, `grep`, `sed`, `awk`, etc., form the core of the Linux toolkit.
+3. **Stick to Pipes:** Avoid using too many temporary files. Skillfully pipe programs together.
+4. **Verify Before Overwriting:** Always double-check before overwriting files using `>` and `>>`.
+5. **Track Workflows:** Document complex commands and workflows for future reuse or sharing.
+6. **Craft Your Own Tools:** Write simple shell scripts and aliases for frequently performed tasks.
+7. **Start Without `sudo`:** Initially use a standard user account to understand permissions.
 
 Remember to constantly test new commands on a virtual machine or VPS server so they become second nature before you start using them on production servers.
 
@@ -2050,5 +2016,3 @@ Whenever you need a quick reference, just check the table below:
 
 **Summary**
 Learning Linux can take some time, but once you grasp a few of its tools, it becomes your best ally, and you won't regret choosing it as your daily driver. One remarkable aspect of Linux is that even as an experienced user, you'll never stop learning ways to boost your productivity with it.
-
-Are there more useful Linux commands? If we missed anything, please share your favorite Linux commands in the comments below\!
