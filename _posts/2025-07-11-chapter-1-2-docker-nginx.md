@@ -1,5 +1,5 @@
 ---
-title: Chapter 1.2 - Docker Streamlining Development with Containers
+title: Chapter 1.2 - Nginx - A High-Performance HTTP Server in Docker
 tags: [Platform Engineering, Dev Ops, Chapter One]
 style: fill
 color: success
