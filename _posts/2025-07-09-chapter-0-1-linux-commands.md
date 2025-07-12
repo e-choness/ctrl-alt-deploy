@@ -1,8 +1,8 @@
 ---
 title: Chapter 0.1 - Before Anything, Let's Go Back to the Root - Linux Commands and Operations
-tags: [Platform Engineering, Dev Ops, Chapter Zero]
+tags: [Platform Engineering, DevOps, Chapter Zero, Linux]
 style: fill
-color: dark
+color: light
 description: This article is a comprehensive guide to over 100 essential Linux commands, crucial for anyone working with cloud infrastructure or as a professional developer. It covers commands for file management, searching and filtering text, input/output redirection, archiving, file transfer, and managing file permissions and system processes. The guide aims to significantly boost productivity for Linux users by explaining the syntax and practical applications of each command.
 ---
 
