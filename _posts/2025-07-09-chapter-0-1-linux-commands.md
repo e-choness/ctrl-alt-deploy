@@ -3,7 +3,7 @@ title: Chapter 0.1 - Before Anything, Let's Go Back to the Root - Linux Commands
 tags: [Platform Engineering, DevOps, Chapter Zero, Linux]
 style: fill
 color: light
-description: This article is a comprehensive guide to over 100 essential Linux commands, crucial for anyone working with cloud infrastructure or as a professional developer. It covers commands for file management, searching and filtering text, input/output redirection, archiving, file transfer, and managing file permissions and system processes. The guide aims to significantly boost productivity for Linux users by explaining the syntax and practical applications of each command.
+description: This guide is a comprehensive guide to over 100 essential Linux commands, crucial for anyone working with cloud infrastructure or as a professional developer. It covers commands for file management, searching and filtering text, input/output redirection, archiving, file transfer, and managing file permissions and system processes. The guide aims to significantly boost productivity for Linux users by explaining the syntax and practical applications of each command.
 ---
 
 At the time of writing, Linux holds a mere 2.68% global market share on desktops. Yet, it reigns supreme in the cloud, powering over 90% of all cloud infrastructure and hosting services. For this reason alone, mastering popular Linux commands is absolutely crucial.
@@ -14,7 +14,7 @@ The core focus of Linux has never been its graphical user interface. It was fund
 
 ## **Learn More Command Line**
 
-In this article, we'll delve into over 100 of the most useful Linux commands. As a Linux user, simply learning a fraction of these commands can significantly boost your productivity.
+In this guide, we'll delve into over 100 of the most useful Linux commands. As a Linux user, simply learning a fraction of these commands can significantly boost your productivity.
 
 **What are Linux Commands?**
 **Most Commonly Used Linux Commands**

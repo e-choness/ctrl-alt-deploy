@@ -2,7 +2,7 @@
 title: Chapter 1.2 - Mastering Docker - Container Operations and Management
 tags: [Platform Engineering, DevOps, Chapter One, Docker]
 style: fill
-color: success
+color: info
 description: This guide delves into Docker operations, building upon a previous tutorial that covered basic container management commands.
 ---
 

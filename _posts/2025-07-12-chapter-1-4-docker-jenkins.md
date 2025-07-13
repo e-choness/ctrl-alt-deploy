@@ -2,7 +2,7 @@
 title: Chapter 1.4 - Dockerized Jenkins - Linux Deployment and Pipeline Execution
 tags: [Platform Engineering, DevOps, Chapter One, Docker]
 style: fill
-color: success
+color: info
 description: This guide outlines how to deploy Jenkins on a Linux server using Docker and run Pipeline scripts within Docker containers. This approach simplifies using various Node.js or Java sandbox environments.
 ---
 
@@ -12,28 +12,29 @@ Due to common network restrictions in some regions, directly pulling Docker imag
 
 ### 1. Download and Transfer Jenkins Images
 
-First, pull the necessary Docker images and save them as `.tar` files. Replace `2.468-jdk21` with the [latest LTS version of Jenkins](https://www.jenkins.io/download/).
+First, pull the necessary Docker images and save them as `.tar` files. We'll use the `lts-jdk21` tag to get the latest Long-Term Support version for JDK 21.
 
 ```bash
-# Get the Jenkins image
-docker pull jenkins/jenkins:2.468-jdk21
+# Get the latest LTS Jenkins image for JDK 21
+docker pull jenkins/jenkins:lts-jdk21
 
 # Save the Docker image to a local file
-docker save -o jenkins-2.468-jdk21.tar jenkins/jenkins:2.468-jdk21
+docker save -o jenkins-lts-jdk21.tar jenkins/jenkins:lts-jdk21
 
-# Get the Jenkins agent image
-docker pull jenkins/ssh-agent:jdk21
+# Get the latest Jenkins agent image for JDK 21
+docker pull jenkins/ssh-agent:latest-jdk21
 
 # Save the Docker image to a local file
-docker save -o jenkins-ssh-agent-jdk21.tar jenkins/ssh-agent:jdk21
+docker save -o jenkins-ssh-agent-latest-jdk21.tar jenkins/ssh-agent:latest-jdk21
 ```
 
 Next, transfer these `.tar` files to your Linux server. Replace `152.22.3.186` with your server's IP address and adjust the `scp` port (`-P 2222`) if needed.
 
 ```bash
 # Upload to the server
-scp -P 2222 jenkins-2.468-jdk21.tar root@152.22.3.186:/home/docker-images
-scp -P 2222 jenkins-ssh-agent-jdk21.tar root@152.22.3.186:/home/docker-images
++scp -P 2222 jenkins-lts-jdk21.tar root@152.22.3.186:/home/docker-images
++scp -P 2222 jenkins-ssh-agent-latest-jdk21.tar root@152.22.3.186:/home/docker-images
+
 ```
 
 ### 2. Create a Custom Jenkins Image with Docker Support
@@ -42,7 +43,7 @@ To allow Jenkins to interact with the Docker daemon on your host, you'll need a 
 
 ```dockerfile
 # Use the official Jenkins JDK 21 image as the base
-FROM jenkins/jenkins:2.468-jdk21
+FROM jenkins/jenkins:lts-jdk21
 
 # Switch to root user to install Docker CLI and create necessary groups
 USER root
@@ -75,7 +76,7 @@ USER jenkins
 Build your new Jenkins image. Replace `my-jenkins-docker-2468-jdk21` with a descriptive tag.
 
 ```bash
-docker build -t my-jenkins-docker-2468-jdk21 .
+docker build -t my-jenkins-docker:lts-jdk21 .
 ```
 
 Save the newly built image and transfer it to your server:
@@ -91,9 +92,9 @@ Once the `.tar` files are on your server, load them into Docker:
 
 ```bash
 # On your server
-docker load -i /home/docker-images/jenkins-2.468-jdk21.tar
+docker load -i /home/docker-images/jenkins-lts-jdk21.tar
 docker load -i /home/docker-images/jenkins-ssh-agent-jdk21.tar
-docker load -i /home/docker-images/my-jenkins-docker-2468-jdk21.tar
+docker load -i /home/docker-images/my-jenkins-docker-lts-jdk21.tar
 ```
 
 ### 4. Configure and Start Jenkins with Docker Compose
@@ -105,7 +106,7 @@ version: "3.8" # Use a recent Docker Compose file format version
 
 services:
   jenkins:
-    image: my-jenkins-docker-2468-jdk21 # Use your custom Jenkins image
+    image: my-jenkins-docker-lts-jdk21 # Use your custom Jenkins image
     ports:
       - "8086:8080" # Map host port 8086 to container port 8080 (Jenkins UI)
       - "50000:50000" # Map host port 50000 to container port 50000 (for Jenkins agents)
@@ -225,7 +226,7 @@ pipeline {
     environment {
         // Define environment variables for your project
         GIT_URL="http://152.22.3.186:8081/mall/h5.git" // Use HTTPS for better security if available
-        GIT_AUTH = "12312312-f199-4b15-b087-123123" // Jenkins Credentials ID for Git
+        GIT_AUTH = "" // Replace with your Jenkins Credentials ID for Git
         GIT_BRANCH = "${branch}" // Parameter from Jenkins job
         PROJECT_ENV = "${project_env}" // Parameter from Jenkins job (e.g., "vip", "dev")
         VIP_HOST = '152.22.3.186'
@@ -277,7 +278,8 @@ pipeline {
                             // Ensure the 'dist' directory exists and rename it as needed
                             sh 'cd h5_vip && mv dist test_dir'
 
-                            withCredentials([sshUserPrivateKey(credentialsId: '9dfd-4fd5-b94b-7559ca212e9a', keyFileVariable: 'SSH_KEY')]) {
+                            withCredentials([sshUserPrivateKey(credentialsId: '', // Fill this with your credentials ID
+                                keyFileVariable: 'SSH_KEY')]) {
                                 // Connect to remote server, remove old deployment, and upload new files
                                 sh '''
                                 ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no root@${VIP_HOST} "rm -rf ${VIP_REMOTE_DIR}/test_dir"
@@ -405,10 +407,10 @@ pipeline {
     environment {
         // Define environment variables for your project
         GIT_URL="http://106.55.8.163:8081/mall/springboot-mall.git" // Use HTTPS if available
-        GIT_AUTH = "211ca2-55c4f199-4b15-b087-238db80b102d" // Jenkins Credentials ID for Git
+        GIT_AUTH = "" // Fill with your Jenkins Credentials ID for Git
         GIT_BRANCH = "${branch}" // Parameter from Jenkins job
         PROJECT_ENV = "${project_env}" // Parameter from Jenkins job (e.g., "pro", "dev")
-        VIP_HOST = '152.22.3.186'
+        VIP_HOST = '152.22.3.186' // Your VIP server's IP address
         VIP_REMOTE_DIR = "/mnt/mall/admin"
     }
     stages {
@@ -452,7 +454,7 @@ pipeline {
                     switch (PROJECT_ENV) {
                         case "pro":
                             // Use SSH credentials for deployment
-                            withCredentials([sshUserPrivateKey(credentialsId: 'bd6f00e69dfd-4fd5-b94b-7559ca212e9a', keyFileVariable: 'SSH_KEY')]) {
+                            withCredentials([sshUserPrivateKey(credentialsId: '',  keyFileVariable: 'SSH_KEY')]) {
                                 // Transfer compiled JAR and dependencies, then restart the service
                                 sh '''
                                 scp -i ${SSH_KEY} -o StrictHostKeyChecking=no -P 22 "${WORKSPACE}/admin/target/lib" "root@${VIP_HOST}:${VIP_REMOTE_DIR}"
