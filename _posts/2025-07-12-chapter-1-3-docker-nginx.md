@@ -2,7 +2,7 @@
 title: Chapter 1.3 - Nginx - A High-Performance HTTP Server in Docker
 tags: [Platform Engineering, DevOps, Chapter One, Docker]
 style: fill
-color: success
+color: info
 description: The guide will walk you through setting up Nginx with Docker, covering image management, container execution with custom configurations and SSL, and integrating with GitLab's Container Registry for robust web service deployment.
 ---
 

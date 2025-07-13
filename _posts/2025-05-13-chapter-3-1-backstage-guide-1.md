@@ -2,7 +2,7 @@
 title: Chapter 3.1 - Building Your Internal Developer Portal with Backstage - A Comprehensive Guide
 tags: [Platform Engineering, Backstage, Chapter Three]
 style: fill
-color: light
+color: success
 description: This guide explores the essentials of internal developer portals, their key features, and provides a hands-on tutorial for building one using Backstage, covering setup, GitHub integration, and template creation for efficient service bootstrapping.
 ---
 

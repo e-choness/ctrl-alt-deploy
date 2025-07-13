@@ -2,7 +2,7 @@
 title: Chapter 1.1 - Docker Streamlining Development with Containers
 tags: [Platform Engineering, DevOps, Chapter One, Docker]
 style: fill
-color: success
+color: info
 description: Tired of "it works on my machine"? Docker solves environment headaches by packaging apps and dependencies into isolated containers. Learn how this lightweight virtualization accelerates development, simplifies deployment, and revolutionizes software delivery.
 ---
 
